@@ -1,0 +1,25 @@
+---
+version: 3
+
+build_arg_defaults:
+  PKGMGR_PRESERVE_CACHE: always
+
+images:
+  base_image:
+    name: quay.io/ansible/creator-ee:latest
+
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+
+options:
+  package_manager_path: /usr/bin/microdnf
+
+additional_build_steps:
+  prepend_base: |
+    RUN pip3 install --upgrade pip setuptools wheel
+
+  # prepend_base: |
+  #   RUN microdnf remove -y python3-PyYAML || true
+  #   RUN pip3 install --upgrade pip setuptools wheel
