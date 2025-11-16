@@ -11,3 +11,5 @@ docker login quay.io/patrisilva
 ```bash
 docker push quay.io/patrisilva/paloalto:nov25-custom
 ```
+> [!NOTE]
+> When pulling the image, make sure to include the tag.
