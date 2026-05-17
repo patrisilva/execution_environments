@@ -6,7 +6,7 @@ build_arg_defaults:
 
 images:
   base_image:
-    name: quay.io/ansible/creator-ee:latest
+    name: registry.redhat.io/ansible-automation-platform-26/ee-minimal-rhel9:latest
 
 dependencies:
   galaxy: requirements.yml
@@ -15,11 +15,3 @@ dependencies:
 
 options:
   package_manager_path: /usr/bin/microdnf
-
-additional_build_steps:
-  prepend_base: |
-    RUN pip3 install --upgrade pip setuptools wheel
-
-  # prepend_base: |
-  #   RUN microdnf remove -y python3-PyYAML || true
-  #   RUN pip3 install --upgrade pip setuptools wheel
